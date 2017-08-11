@@ -14,10 +14,8 @@ The commands below demonstrate three ways to run the docker container. In each, 
 You can run the container in interactive mode with:
 
 ``` bash
-docker run -w /asian_niche -it bocinsky/asian_niche:0.9.0 bash
+docker run -v [PATH TO LOCAL DIRECTORY]:[PATH TO CONTAINER MOUNT POINT] -it bocinsky/bocin_base bash
 ```
-
-The `asian_niche.R` script has been designed to be run from the shell using Python-style argument parsing. To run, simply enter `Rscript --vanilla asian_niche.R` at the shell prompt. Passing the `--vanilla` option runs the script in a "fresh" R environment. Run `Rscript asian_niche.R --help` to see all available options.
 
 You can use the `exit` command to stop the container.
 
