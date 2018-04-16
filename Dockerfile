@@ -1,6 +1,6 @@
 ## Adds ffmpeg and ghostscript to rocker/geospatial
 
-FROM rocker/geospatial:3.4.1
+FROM rocker/geospatial:3.4.4
 
 MAINTAINER Kyle Bocinsky <bocinsky@gmail.com>
 
@@ -22,3 +22,30 @@ RUN apt-get install -y --no-install-recommends \
 ## ghostscript
 RUN apt-get install -y --no-install-recommends \
     ghostscript
+    
+## Install R package dependencies from stable MRAN repo
+RUN install2.r --error \
+    ## Packages for Python-like command-line parsing
+    devtools \
+    optparse \
+    ## Package for data aquisition
+    FedData \
+    ## Packages offering general utilities
+    R.utils \
+    Hmisc \
+    zoo \
+    abind \
+    mgcv \
+    rgbif \
+    fields \
+    ## Packages for tidy code
+    ggthemes \
+    purrrlyr \
+    ## Plotting
+    htmlwidgets \
+    plotly \
+    bibtex \
+    knitcitations
+
+## Update ggplot2 to development version (need 2.2.1.9000 for geom_sf function)
+RUN r -e 'devtools::install_github("tidyverse/ggplot2")'
