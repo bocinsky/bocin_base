@@ -1,6 +1,6 @@
 ## Adds ffmpeg and ghostscript to rocker/geospatial
 
-FROM rocker/geospatial:3.4.4
+FROM rocker/geospatial:3.5.1
 
 MAINTAINER Kyle Bocinsky <bocinsky@gmail.com>
 
